@@ -16,6 +16,6 @@ WORKDIR /tmp
 
 COPY ./entrypoint.sh /
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["fio"]
