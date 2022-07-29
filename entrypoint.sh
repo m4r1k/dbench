@@ -8,7 +8,7 @@ fi
 echo Working dir: $DBENCH_MOUNTPOINT
 echo
 
-FIOCMD="fio --ioengine=libaio --filesize=2G --ramp_time=2s --runtime=5m --numjobs=16 --direct=1 --verify=0 --randrepeat=0 --group_reporting --directory=$DBENCH_MOUNTPOINT --time_based"
+FIOCMD="fio --ioengine=libaio --filesize=2G --ramp_time=2s --runtime=2m --numjobs=16 --direct=1 --verify=0 --randrepeat=0 --group_reporting --directory=$DBENCH_MOUNTPOINT --time_based"
 
 if [ "$1" = 'fio' ]; then
 
