@@ -31,7 +31,7 @@ if [ "$1" = 'fio' ]; then
     echo
 
     echo Testing Read Latency...
-    READ_LATENCY=$($FIOCMD --name=read_latency --readwrite=randread --blocksize=4k --iodepth=4)
+    READ_LATENCY=$($FIOCMD --name=read_latency --readwrite=randread --blocksize=4k --iodepth=4 --numjobs=1)
     rm -f $DBENCH_MOUNTPOINT/read_latency.*
     echo "$READ_LATENCY"
     READ_LATENCY_VAL=$(echo "$READ_LATENCY"|grep ' lat.*avg'|grep -Eoi 'avg=[\b 0-9.]+'|cut -d'=' -f2)
@@ -39,7 +39,7 @@ if [ "$1" = 'fio' ]; then
     echo
 
     echo Testing Write Latency...
-    WRITE_LATENCY=$($FIOCMD --name=write_latency --readwrite=randwrite --blocksize=4k --iodepth=4)
+    WRITE_LATENCY=$($FIOCMD --name=write_latency --readwrite=randwrite --blocksize=4k --iodepth=4 --numjobs=1)
     rm -f $DBENCH_MOUNTPOINT/write_latency.*
     echo "$WRITE_LATENCY"
     WRITE_LATENCY_VAL=$(echo "$WRITE_LATENCY"|grep ' lat.*avg'|grep -Eoi 'avg=[\b 0-9.]+'|cut -d'=' -f2)
