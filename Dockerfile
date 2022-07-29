@@ -1,6 +1,6 @@
 FROM dmonakhov/alpine-fio
 
-MAINTAINER Lee Liu <lee@logdna.com>
+MAINTAINER Federico Iezzi <fiezzi@google.com>
 
 VOLUME /tmp
 WORKDIR /tmp
