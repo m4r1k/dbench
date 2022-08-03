@@ -9,10 +9,14 @@ if [ -z $RUNTIME ]; then
     RUNTIME=2m
 fi
 
+if [ -z $INIT ]; then
+    INIT="--create_only=0"
+fi
+
 echo Working dir: $DBENCH_MOUNTPOINT
 echo
 
-FIOCMD="fio --ioengine=libaio --filesize=2G --ramp_time=2s --runtime=$RUNTIME --numjobs=16 --direct=1 --verify=0 --randrepeat=0 --overwrite=0 --group_reporting --directory=$DBENCH_MOUNTPOINT --time_based"
+FIOCMD="fio --ioengine=libaio --filesize=2G --ramp_time=2s --runtime=$RUNTIME --numjobs=16 --direct=1 --verify=0 --randrepeat=0 --overwrite=0 --group_reporting --directory=$DBENCH_MOUNTPOINT --time_based $INIT"
 
 if [ "$1" = 'fio' ]; then
 
